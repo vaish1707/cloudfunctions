@@ -4,6 +4,11 @@ const imagekit = new ImageKit({
   privateKey: process.env.PRIVATE_KEY,
   urlEndpoint: process.env.URL_END_POINT,
 });
+
+export function time(req, res) {
+  res.send(`${Date.now()}`);
+}
+
 export function uploadToImageKit(req, res) {
   let base64data = [];
   if (req.busboy) {
