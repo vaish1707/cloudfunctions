@@ -12,9 +12,7 @@ app.use(bodyParser.json());
 app.use(busboy({ immediate: true }));
 const controller = require('./controllers');
 
-app.get('/time', (req, res) => {
-  res.send(`${Date.now()}`);
-});
+app.get('/time', controller.time);
 
 app.post('/transform', controller.uploadToImageKit);
 
