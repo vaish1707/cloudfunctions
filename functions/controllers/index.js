@@ -9,6 +9,12 @@ export function time(req, res) {
   res.send(`${Date.now()}`);
 }
 
+export async function addMessage(req, res) {
+  const original = req.query.text;
+  const writeResult = await admin.firestore().collection('messages').add({ original: original });
+  res.json({ result: `Message with ID: ${writeResult.id} added.` });
+}
+
 export function uploadToImageKit(req, res) {
   let base64data = [];
   if (req.busboy) {

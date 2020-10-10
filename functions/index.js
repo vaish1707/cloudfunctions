@@ -16,4 +16,6 @@ app.get('/time', controller.time);
 
 app.post('/transform', controller.uploadToImageKit);
 
+app.post('/addMessage', controller.addMessage);
+
 exports.app = functions.runWith({ timeoutSeconds: 120 }).https.onRequest(app);
