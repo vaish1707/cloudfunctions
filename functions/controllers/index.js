@@ -50,3 +50,21 @@ export function uploadToImageKit(req, res) {
       });
   }
 }
+
+export function uploadImageUrl(req, res) {
+  let base64data = req.body.base64;
+  imagekit.upload(
+    {
+      file: `data:image/png;base64,${base64data}`,
+      fileName: 'threedselfiy-image' + Date.now() + '.jpg',
+    },
+    function (error, result) {
+      if (error) {
+        console.log('err', error.message);
+        res.send(error);
+      }
+      console.log('success', result);
+      res.send(result);
+    }
+  );
+}
