@@ -6,7 +6,7 @@ const imagekit = new ImageKit({
 });
 
 export function time(req, res) {
-  res.send(`${Date.now()}`);
+  res.send(`${new Date()}`);
 }
 
 export async function addMessage(req, res) {
